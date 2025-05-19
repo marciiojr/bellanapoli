@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Bella Napoli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .reservation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Bella Napoli Logo" class="h-12">
+                </a>
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font">Bella Napoli</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative group">
+                    <button id="user-menu" class="flex items-center space-x-2 focus:outline-none">
+                        <span class="hidden md:inline text-gray-700">Olá, João</span>
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-8 h-8 rounded-full">
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50">
+                        <a href="perfil.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Meu Perfil</a>
+                        <a href="../login.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <div class="sidebar w-64 bg-white shadow-md fixed h-full hidden md:block">
+            <div class="p-4">
+                <div class="flex items-center space-x-3 p-4 mb-6">
+                    <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                    <div>
+                        <h3 class="font-semibold">João Silva</h3>
+                        <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                    </div>
+                </div>
+                
+                <nav class="space-y-1">
+                    <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                        <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-calendar-alt w-5 text-center"></i>
+                        <span>Minhas Reservas</span>
+                    </a>
+                    <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-heart w-5 text-center"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-user w-5 text-center"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button id="mobile-sidebar-toggle" class="fixed bottom-6 right-6 bg-red-600 text-white p-4 rounded-full shadow-lg md:hidden z-40">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Sidebar -->
+        <div id="mobile-sidebar" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden md:hidden">
+            <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-lg">
+                <div class="p-4 flex justify-end">
+                    <button id="close-mobile-sidebar" class="text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="px-4">
+                    <div class="flex items-center space-x-3 p-4 mb-6">
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h3 class="font-semibold">João Silva</h3>
+                            <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="space-y-1">
+                        <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                            <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-calendar-alt w-5 text-center"></i>
+                            <span>Minhas Reservas</span>
+                        </a>
+                        <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-heart w-5 text-center"></i>
+                            <span>Favoritos</span>
+                        </a>
+                        <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-user w-5 text-center"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 md:ml-64 p-6">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 title-font">Meu Perfil</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Coluna 1: Informações do Perfil -->
+            <div class="md:col-span-1">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex flex-col items-center">
+                        <div class="relative mb-4">
+                            <img src="../assets/user-avatar.jpg" alt="User" class="w-32 h-32 rounded-full object-cover">
+                            <button class="absolute bottom-0 right-0 bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition duration-300">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h2 class="text-xl font-bold">João Silva</h2>
+                        <p class="text-gray-600 mb-4">joao.silva@email.com</p>
+                        <div class="w-full border-t border-gray-200 pt-4">
+                            <h3 class="font-semibold mb-2">Informações</h3>
+                            <p class="text-sm text-gray-600"><i class="fas fa-phone-alt mr-2 text-red-600"></i> (85) 98765-4321</p>
+                            <p class="text-sm text-gray-600 mt-1"><i class="fas fa-birthday-cake mr-2 text-red-600"></i> 15/03/1985</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm mt-6">
+                    <h3 class="font-semibold mb-4">Preferências</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="pref-newsletter" class="rounded text-red-600" checked>
+                            <label for="pref-newsletter" class="ml-2 text-sm text-gray-700">Receber newsletter</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="pref-promo" class="rounded text-red-600" checked>
+                            <label for="pref-promo" class="ml-2 text-sm text-gray-700">Receber promoções</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="pref-smoking" class="rounded text-red-600">
+                            <label for="pref-smoking" class="ml-2 text-sm text-gray-700">Área para fumantes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coluna 2: Formulário de Edição -->
+            <div class="md:col-span-2">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 title-font">Editar Perfil</h2>
+                    
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Nome -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nome Completo</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="name" value="João Silva">
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="email" id="email" value="joao.silva@email.com">
+                            </div>
+                            
+                            <!-- Telefone -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Telefone</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="tel" id="phone" value="(85) 98765-4321">
+                            </div>
+                            
+                            <!-- Data de Nascimento -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="birthdate">Data de Nascimento</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="date" id="birthdate" value="1985-03-15">
+                            </div>
+                            
+                            <!-- Senha -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Nova Senha</label>
+                                <div class="relative">
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="password" id="password" placeholder="Deixe em branco para não alterar">
+                                    <span class="toggle-password absolute right-3 top-3 text-gray-400 cursor-pointer">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Confirmar Senha -->
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="confirm-password">Confirmar Nova Senha</label>
+                                <div class="relative">
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="password" id="confirm-password" placeholder="Confirme a nova senha">
+                                    <span class="toggle-password absolute right-3 top-3 text-gray-400 cursor-pointer">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Endereço -->
+                        <div class="mt-6">
+                            <h3 class="font-semibold mb-4">Endereço</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="cep">CEP</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="cep" placeholder="00000-000">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="street">Rua</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="street" placeholder="Rua Exemplo, 123">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="city">Cidade</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="text" id="city" placeholder="Sua Cidade">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="state">Estado</label>
+                                    <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" id="state">
+                                        <option>Selecione</option>
+                                        <option selected>CE</option>
+                                        <option>SP</option>
+                                        <option>RJ</option>
+                                        <!-- Outros estados -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Botões -->
+                        <div class="mt-8 flex justify-end space-x-4">
+                            <button type="button" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300">
+                                Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Seção de Notificações -->
+                <div class="bg-white p-6 rounded-lg shadow-sm mt-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 title-font">Notificações</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <input type="checkbox" id="notif-reservations" class="rounded text-red-600" checked>
+                            </div>
+                            <div class="ml-3">
+                                <label for="notif-reservations" class="font-medium text-gray-700">Reservas</label>
+                                <p class="text-sm text-gray-500">Receber lembretes e confirmações de reservas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <input type="checkbox" id="notif-promotions" class="rounded text-red-600" checked>
+                            </div>
+                            <div class="ml-3">
+                                <label for="notif-promotions" class="font-medium text-gray-700">Promoções</label>
+                                <p class="text-sm text-gray-500">Receber ofertas especiais e descontos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <input type="checkbox" id="notif-news" class="rounded text-red-600">
+                            </div>
+                            <div class="ml-3">
+                                <label for="notif-news" class="font-medium text-gray-700">Novidades</label>
+                                <p class="text-sm text-gray-500">Receber atualizações sobre novos pratos e eventos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+        
+        // Simulação de upload de foto
+        document.querySelector('button[class*="fa-camera"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Funcionalidade de upload de foto será implementada no backend');
+        });
+    </script>
+</body>
+</html>

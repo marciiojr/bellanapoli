@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Bella Napoli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .reservation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Bella Napoli Logo" class="h-12">
+                </a>
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font">Bella Napoli</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative group">
+                    <button id="user-menu" class="flex items-center space-x-2 focus:outline-none">
+                        <span class="hidden md:inline text-gray-700">Olá, João</span>
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-8 h-8 rounded-full">
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50">
+                        <a href="perfil.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Meu Perfil</a>
+                        <a href="../login.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <div class="sidebar w-64 bg-white shadow-md fixed h-full hidden md:block">
+            <div class="p-4">
+                <div class="flex items-center space-x-3 p-4 mb-6">
+                    <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                    <div>
+                        <h3 class="font-semibold">João Silva</h3>
+                        <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                    </div>
+                </div>
+                
+                <nav class="space-y-1">
+                    <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                        <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-calendar-alt w-5 text-center"></i>
+                        <span>Minhas Reservas</span>
+                    </a>
+                    <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-heart w-5 text-center"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-user w-5 text-center"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button id="mobile-sidebar-toggle" class="fixed bottom-6 right-6 bg-red-600 text-white p-4 rounded-full shadow-lg md:hidden z-40">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Sidebar -->
+        <div id="mobile-sidebar" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden md:hidden">
+            <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-lg">
+                <div class="p-4 flex justify-end">
+                    <button id="close-mobile-sidebar" class="text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="px-4">
+                    <div class="flex items-center space-x-3 p-4 mb-6">
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h3 class="font-semibold">João Silva</h3>
+                            <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="space-y-1">
+                        <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                            <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-calendar-alt w-5 text-center"></i>
+                            <span>Minhas Reservas</span>
+                        </a>
+                        <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-heart w-5 text-center"></i>
+                            <span>Favoritos</span>
+                        </a>
+                        <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-user w-5 text-center"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 md:ml-64 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800 title-font">Minhas Reservas</h1>
+            <a href="../reservations.html" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300">
+                <i class="fas fa-plus mr-2"></i> Nova Reserva
+            </a>
+        </div>
+        
+        <!-- Filtros -->
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Filtrar por status</label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                        <option>Todas</option>
+                        <option>Confirmadas</option>
+                        <option>Pendentes</option>
+                        <option>Canceladas</option>
+                        <option>Concluídas</option>
+                    </select>
+                </div>
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Período</label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                        <option>Últimos 3 meses</option>
+                        <option>Últimos 6 meses</option>
+                        <option>Este ano</option>
+                        <option>Todos</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-md transition duration-300">
+                        Aplicar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lista de Reservas -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Horário</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pessoas</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Reserva 1 -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">25/12/2023</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">19:00</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">4</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Confirmada
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-red-600 hover:text-red-900 mr-3">Alterar</a>
+                                <a href="#" class="text-gray-600 hover:text-gray-900">Cancelar</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Reserva 2 -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">31/12/2023</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">21:30</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">6</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    Pendente
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-red-600 hover:text-red-900 mr-3">Alterar</a>
+                                <a href="#" class="text-gray-600 hover:text-gray-900">Cancelar</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Reserva 3 -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">15/11/2023</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">20:00</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">2</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                    Concluída
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-red-600 hover:text-red-900 mr-3">Detalhes</a>
+                                <a href="#" class="text-gray-600 hover:text-gray-900">Repetir</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Paginação -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 mt-6 rounded-b-lg">
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm text-gray-700">
+                        Mostrando <span class="font-medium">1</span> a <span class="font-medium">3</span> de <span class="font-medium">7</span> reservas
+                    </p>
+                </div>
+                <div>
+                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            <span class="sr-only">Anterior</span>
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="#" aria-current="page" class="z-10 bg-red-50 border-red-500 text-red-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                            1
+                        </a>
+                        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                            2
+                        </a>
+                        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                            3
+                        </a>
+                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            <span class="sr-only">Próxima</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulação de cancelamento de reserva
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            if (link.textContent.includes('Cancelar')) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('Tem certeza que deseja cancelar esta reserva?')) {
+                        const row = this.closest('tr');
+                        row.classList.add('opacity-0', 'transition', 'duration-300');
+                        setTimeout(() => {
+                            row.remove();
+                        }, 300);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

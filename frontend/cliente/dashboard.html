@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Bella Napoli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .reservation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Bella Napoli Logo" class="h-12">
+                </a>
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font">Bella Napoli</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative group">
+                    <button id="user-menu" class="flex items-center space-x-2 focus:outline-none">
+                        <span class="hidden md:inline text-gray-700">Olá, João</span>
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-8 h-8 rounded-full">
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50">
+                        <a href="perfil.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Meu Perfil</a>
+                        <a href="../login.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <div class="sidebar w-64 bg-white shadow-md fixed h-full hidden md:block">
+            <div class="p-4">
+                <div class="flex items-center space-x-3 p-4 mb-6">
+                    <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                    <div>
+                        <h3 class="font-semibold">João Silva</h3>
+                        <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                    </div>
+                </div>
+                
+                <nav class="space-y-1">
+                    <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                        <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-calendar-alt w-5 text-center"></i>
+                        <span>Minhas Reservas</span>
+                    </a>
+                    <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-heart w-5 text-center"></i>
+                        <span>Favoritos</span>
+                    </a>
+                    <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                        <i class="far fa-user w-5 text-center"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Sidebar Toggle -->
+        <button id="mobile-sidebar-toggle" class="fixed bottom-6 right-6 bg-red-600 text-white p-4 rounded-full shadow-lg md:hidden z-40">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Sidebar -->
+        <div id="mobile-sidebar" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden md:hidden">
+            <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-lg">
+                <div class="p-4 flex justify-end">
+                    <button id="close-mobile-sidebar" class="text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="px-4">
+                    <div class="flex items-center space-x-3 p-4 mb-6">
+                        <img src="../assets/user-avatar.jpg" alt="User" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h3 class="font-semibold">João Silva</h3>
+                            <p class="text-sm text-gray-500">Membro desde Jan/2023</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="space-y-1">
+                        <a href="dashboard.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium active">
+                            <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="reservas.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-calendar-alt w-5 text-center"></i>
+                            <span>Minhas Reservas</span>
+                        </a>
+                        <a href="favoritos.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-heart w-5 text-center"></i>
+                            <span>Favoritos</span>
+                        </a>
+                        <a href="perfil.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg font-medium">
+                            <i class="far fa-user w-5 text-center"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 md:ml-64 p-6">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6 title-font">Minha Conta</h1>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-600">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500">Reservas Ativas</p>
+                            <h3 class="text-2xl font-bold">2</h3>
+                        </div>
+                        <div class="bg-red-100 p-3 rounded-full text-red-600">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500">Total de Visitas</p>
+                            <h3 class="text-2xl font-bold">7</h3>
+                        </div>
+                        <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-600">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500">Favoritos</p>
+                            <h3 class="text-2xl font-bold">3</h3>
+                        </div>
+                        <div class="bg-green-100 p-3 rounded-full text-green-600">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Próximas Reservas -->
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 title-font">Próximas Reservas</h2>
+                    <a href="reservas.html" class="text-red-600 hover:underline">Ver todas</a>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Reserva 1 -->
+                    <div class="reservation-card bg-white border border-gray-200 rounded-lg p-4 shadow-sm transition duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center space-x-3">
+                                    <h3 class="font-semibold">25 de Dezembro, 2023</h3>
+                                    <span class="bg-green-100 text-green-800 badge rounded-full">Confirmada</span>
+                                </div>
+                                <p class="text-gray-600 mt-1"><i class="fas fa-clock text-red-600 mr-2"></i> 19:00 - 4 pessoas</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition duration-300 text-sm">
+                                    <i class="fas fa-edit mr-1"></i> Alterar
+                                </button>
+                                <button class="px-3 py-1 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition duration-300 text-sm">
+                                    <i class="fas fa-times mr-1"></i> Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reserva 2 -->
+                    <div class="reservation-card bg-white border border-gray-200 rounded-lg p-4 shadow-sm transition duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center space-x-3">
+                                    <h3 class="font-semibold">31 de Dezembro, 2023</h3>
+                                    <span class="bg-yellow-100 text-yellow-800 badge rounded-full">Pendente</span>
+                                </div>
+                                <p class="text-gray-600 mt-1"><i class="fas fa-clock text-red-600 mr-2"></i> 21:30 - 6 pessoas</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition duration-300 text-sm">
+                                    <i class="fas fa-edit mr-1"></i> Alterar
+                                </button>
+                                <button class="px-3 py-1 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition duration-300 text-sm">
+                                    <i class="fas fa-times mr-1"></i> Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recomendações -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-bold text-gray-800 mb-6 title-font">Recomendados para Você</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Item 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-300">
+                        <img src="../assets/risotto-funghi.jpg" alt="Risotto ai Funghi" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2">Risotto ai Funghi</h3>
+                            <p class="text-gray-600 text-sm mb-3">Risotto cremoso com cogumelos porcini frescos e vinho branco.</p>
+                            <button class="text-red-600 hover:text-red-700 text-sm font-semibold">
+                                <i class="far fa-heart mr-1"></i> Adicionar aos Favoritos
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-300">
+                        <img src="../assets/tiramisu.jpg" alt="Tiramisù" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2">Tiramisù Classico</h3>
+                            <p class="text-gray-600 text-sm mb-3">A sobremesa italiana mais famosa com café e mascarpone.</p>
+                            <button class="text-red-600 hover:text-red-700 text-sm font-semibold">
+                                <i class="far fa-heart mr-1"></i> Adicionar aos Favoritos
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-300">
+                        <img src="../assets/pasta-carbonara.jpg" alt="Spaghetti Carbonara" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2">Spaghetti Carbonara</h3>
+                            <p class="text-gray-600 text-sm mb-3">Clássico romano com ovos, queijo pecorino e pancetta.</p>
+                            <button class="text-red-600 hover:text-red-700 text-sm font-semibold">
+                                <i class="far fa-heart mr-1"></i> Adicionar aos Favoritos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Sidebar Toggle
+        const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const closeMobileSidebar = document.getElementById('close-mobile-sidebar');
+        
+        mobileSidebarToggle.addEventListener('click', function() {
+            mobileSidebar.classList.remove('hidden');
+        });
+        
+        closeMobileSidebar.addEventListener('click', function() {
+            mobileSidebar.classList.add('hidden');
+        });
+        
+        // Simulação de cancelamento de reserva
+        document.querySelectorAll('.reservation-card button').forEach(button => {
+            if (button.textContent.includes('Cancelar')) {
+                button.addEventListener('click', function() {
+                    const reservationCard = this.closest('.reservation-card');
+                    if (confirm('Tem certeza que deseja cancelar esta reserva?')) {
+                        reservationCard.classList.add('opacity-0');
+                        setTimeout(() => {
+                            reservationCard.remove();
+                        }, 300);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

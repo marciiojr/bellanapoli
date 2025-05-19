@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Ristorante Bella Napoli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        .reservation-form input, .reservation-form select, .reservation-form textarea {
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .reservation-form input:focus, .reservation-form select:focus, .reservation-form textarea:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        .calendar-day:hover:not(.disabled) {
+            background-color: #fecaca;
+            cursor: pointer;
+        }
+        .selected-date {
+            background-color: #dc2626;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Bella Napoli Logo" class="h-14">
+                </a>
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font">Bella Napoli</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="text-gray-600 hover:text-red-600 transition duration-300">Home</a>
+                <a href="menu.html" class="text-gray-600 hover:text-red-600 transition duration-300">Cardápio</a>
+                <a href="reservations.html" class="text-red-600 font-semibold">Reservas</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600 transition duration-300">Sobre Nós</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="px-4 py-2 text-gray-600 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-user"></i> <span class="hidden md:inline">Login</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Reservations Hero Section -->
+    <section class="relative h-64 flex items-center justify-center bg-[url('../assets/reservation-hero.jpg')] bg-cover bg-center mt-16">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 title-font">Reservas</h1>
+            <p class="text-xl text-white">Garanta sua experiência gastronômica</p>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <!-- Calendar Section -->
+                        <div class="md:w-1/2 bg-gray-50 p-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6 title-font">Selecione a Data</h2>
+                            
+                            <div class="mb-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <button id="prev-month" class="text-gray-600 hover:text-red-600">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <h3 id="current-month" class="font-semibold text-lg">Junho 2023</h3>
+                                    <button id="next-month" class="text-gray-600 hover:text-red-600">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="grid grid-cols-7 gap-1 text-center text-sm font-medium text-gray-500 mb-2">
+                                    <div>Dom</div>
+                                    <div>Seg</div>
+                                    <div>Ter</div>
+                                    <div>Qua</div>
+                                    <div>Qui</div>
+                                    <div>Sex</div>
+                                    <div>Sáb</div>
+                                </div>
+                                
+                                <div id="calendar-days" class="grid grid-cols-7 gap-1 text-center">
+                                    <!-- Dias serão gerados dinamicamente via JavaScript -->
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h3 class="font-semibold mb-3">Horário Disponível</h3>
+                                <div id="time-slots" class="grid grid-cols-3 gap-2">
+                                    <!-- Horários serão gerados dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Form Section -->
+                        <div class="md:w-1/2 p-8 reservation-form">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6 title-font">Detalhes da Reserva</h2>
+                            
+                            <form id="reservation-form">
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nome Completo</label>
+                                    <input class="w-full px-3 py-2 rounded-md" type="text" id="name" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                                    <input class="w-full px-3 py-2 rounded-md" type="email" id="email" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Telefone</label>
+                                    <input class="w-full px-3 py-2 rounded-md" type="tel" id="phone" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="people">Número de Pessoas</label>
+                                    <select class="w-full px-3 py-2 rounded-md" id="people" required>
+                                        <option value="1">1 pessoa</option>
+                                        <option value="2">2 pessoas</option>
+                                        <option value="3">3 pessoas</option>
+                                        <option value="4">4 pessoas</option>
+                                        <option value="5">5 pessoas</option>
+                                        <option value="6">6 pessoas</option>
+                                        <option value="7">7+ pessoas</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="date">Data</label>
+                                    <input class="w-full px-3 py-2 rounded-md bg-gray-100" type="text" id="date" readonly>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="time">Horário</label>
+                                    <input class="w-full px-3 py-2 rounded-md bg-gray-100" type="text" id="time" readonly>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="notes">Observações</label>
+                                    <textarea class="w-full px-3 py-2 rounded-md" id="notes" rows="3"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300">
+                                    Confirmar Reserva
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8 text-center">
+            <div class="text-green-500 text-6xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 title-font">Reserva Confirmada!</h3>
+            <p class="text-gray-600 mb-6" id="confirmation-details"></p>
+            <button id="close-confirmation" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <!-- Mesmo footer da index.html -->
+    </footer>
+
+    <script>
+        // Calendar Logic
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedTime = null;
+        
+        function renderCalendar() {
+            const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+                               "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            
+            document.getElementById('current-month').textContent = 
+                `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+            
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+            const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+            
+            const prevLastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+            const firstDayIndex = firstDay.getDay();
+            const lastDayIndex = lastDay.getDay();
+            const daysInMonth = lastDay.getDate();
+            
+            let days = '';
+            
+            // Dias do mês anterior
+            for (let i = firstDayIndex; i > 0; i--) {
+                days += `<div class="py-2 text-gray-300">${prevLastDay - i + 1}</div>`;
+            }
+            
+            // Dias do mês atual
+            const today = new Date();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
+                const isToday = date.toDateString() === today.toDateString();
+                const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
+                const isPast = date < today && !isToday;
+                
+                let dayClass = 'py-2';
+                if (isSelected) dayClass += ' selected-date text-white';
+                else if (isToday) dayClass += ' bg-red-100 text-red-600 font-bold';
+                else if (!isPast) dayClass += ' hover:bg-red-100';
+                
+                if (isPast) {
+                    days += `<div class="py-2 text-gray-300">${i}</div>`;
+                } else {
+                    days += `<div class="${dayClass}" data-day="${i}">${i}</div>`;
+                }
+            }
+            
+            // Dias do próximo mês
+            for (let i = 1; i <= (6 - lastDayIndex); i++) {
+                days += `<div class="py-2 text-gray-300">${i}</div>`;
+            }
+            
+            document.getElementById('calendar-days').innerHTML = days;
+            
+            // Adiciona event listeners aos dias
+            document.querySelectorAll('#calendar-days div:not(.text-gray-300)').forEach(day => {
+                day.addEventListener('click', function() {
+                    const dayNum = this.getAttribute('data-day');
+                    selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNum);
+                    
+                    // Atualiza o calendário para mostrar a seleção
+                    renderCalendar();
+                    
+                    // Atualiza o campo de data no formulário
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    document.getElementById('date').value = selectedDate.toLocaleDateString('pt-BR', options);
+                    
+                    // Gera horários disponíveis
+                    generateTimeSlots();
+                });
+            });
+        }
+        
+        function generateTimeSlots() {
+            if (!selectedDate) return;
+            
+            const timeSlotsContainer = document.getElementById('time-slots');
+            timeSlotsContainer.innerHTML = '';
+            
+            const openingHour = 11; // 11:00
+            const closingHour = 22; // 22:00
+            const interval = 30; // 30 minutos
+            
+            for (let hour = openingHour; hour < closingHour; hour++) {
+                for (let minute = 0; minute < 60; minute += interval) {
+                    const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                    const timeElement = document.createElement('button');
+                    timeElement.className = 'py-2 px-1 bg-gray-100 hover:bg-red-600 hover:text-white rounded text-sm transition duration-300';
+                    timeElement.textContent = timeString;
+                    timeElement.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelectorAll('#time-slots button').forEach(btn => {
+                            btn.classList.remove('bg-red-600', 'text-white');
+                            btn.classList.add('bg-gray-100');
+                        });
+                        this.classList.remove('bg-gray-100');
+                        this.classList.add('bg-red-600', 'text-white');
+                        selectedTime = this.textContent;
+                        document.getElementById('time').value = selectedTime;
+                    });
+                    timeSlotsContainer.appendChild(timeElement);
+                }
+            }
+        }
+        
+        // Navigation between months
+        document.getElementById('prev-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+        
+        document.getElementById('next-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+        
+        // Form Submission
+        document.getElementById('reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!selectedDate || !selectedTime) {
+                alert('Por favor, selecione uma data e horário');
+                return;
+            }
+            
+            // Aqui você normalmente enviaria os dados para o servidor
+            // Vamos apenas mostrar a confirmação
+            const name = document.getElementById('name').value;
+            const dateStr = selectedDate.toLocaleDateString('pt-BR');
+            
+            document.getElementById('confirmation-details').innerHTML = `
+                Obrigado, <strong>${name}</strong>!<br><br>
+                Sua reserva para <strong>${dateStr} às ${selectedTime}</strong> foi confirmada.<br>
+                Enviamos os detalhes para o seu email.
+            `;
+            
+            document.getElementById('confirmation-modal').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-confirmation').addEventListener('click', function() {
+            document.getElementById('confirmation-modal').classList.add('hidden');
+        });
+        
+        // Initialize calendar
+        renderCalendar();
+    </script>
+        <script>
+            // Simulação: Verifica se o usuário está logado (substituir por verificação real)
+            const usuarioLogado = localStorage.getItem('usuarioLogado') === 'true';
+            
+            if (!usuarioLogado) {
+                window.location.href = 'login.html?redirect=reservations.html';
+            }
+        </script>
+</body>
+</html>

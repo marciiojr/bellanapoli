@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Ristorante Bella Napoli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        .title-font { font-family: 'Playfair Display', serif; }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="../index.html">
+                    <img src="../assets/logo.png" alt="Bella Napoli Logo" class="h-14">
+                </a>
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font">Bella Napoli</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="text-gray-600 hover:text-red-600 transition duration-300">Home</a>
+                <a href="menu.html" class="text-gray-600 hover:text-red-600 transition duration-300">Cardápio</a>
+                <a href="reservations.html" class="text-gray-600 hover:text-red-600 transition duration-300">Reservas</a>
+                <a href="about.html" class="text-red-600 font-semibold">Sobre Nós</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="px-4 py-2 text-gray-600 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-user"></i> <span class="hidden md:inline">Login</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="relative h-64 flex items-center justify-center bg-[url('../assets/about-hero.jpg')] bg-cover bg-center mt-16">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 title-font">Sobre Nós</h1>
+            <p class="text-xl text-white">Nossa história e paixão pela culinária italiana</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Nossa História</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline -->
+                    <div class="space-y-8">
+                        <!-- Item 1 -->
+                        <div class="timeline-item relative pl-10">
+                            <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-red-600 z-10"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">1985 - Fundação</h3>
+                                <p class="text-gray-600">Giovanni Rossi, imigrante italiano, fundou o Bella Napoli com a missão de trazer os sabores autênticos de sua Nápoles natal para nossa cidade. Começou como uma pequena trattoria com apenas 10 mesas.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="timeline-item relative pl-10">
+                            <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-red-600 z-10"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">1998 - Primeira Expansão</h3>
+                                <p class="text-gray-600">Com o sucesso da culinária autêntica, o restaurante dobrou de tamanho e ganhou seu primeiro prêmio de "Melhor Restaurante Italiano" pela revista Gastronomia & Vinhos.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="timeline-item relative pl-10">
+                            <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-red-600 z-10"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">2010 - Nova Geração</h3>
+                                <p class="text-gray-600">Marco Bianchi, neto de Giovanni, assume a cozinha após se formar na prestigiada escola ALMA na Itália, trazendo novas técnicas sem perder a essência tradicional.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4 -->
+                        <div class="timeline-item relative pl-10">
+                            <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-red-600 z-10"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">2023 - Presente</h3>
+                                <p class="text-gray-600">Hoje somos referência em culinária italiana na região, com mais de 100 lugares, adega premiada e uma equipe apaixonada por gastronomia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Philosophy Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Nossa Filosofia</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <img src="../assets/fresh-ingredients.jpg" alt="Ingredientes Frescos" class="rounded-lg w-full">
+                        </div>
+                        <div class="md:w-2/3 md:pl-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">Ingredientes da Mais Alta Qualidade</h3>
+                            <p class="text-gray-600">Acreditamos que a excelência começa com os ingredientes. Por isso, importamos diretamente da Itália: azeite de oliva extra virgem, queijos, massas frescas e vinhos. Nossos vegetais e ervas vêm de produtores locais selecionados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/3 mb-6 md:mb-0 order-last md:order-first">
+                            <img src="../assets/traditional-techniques.jpg" alt="Técnicas Tradicionais" class="rounded-lg w-full">
+                        </div>
+                        <div class="md:w-2/3 md:pr-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">Técnicas Tradicionais</h3>
+                            <p class="text-gray-600">Nossos chefs são treinados nas técnicas centenárias da culinária italiana. Cada massa é preparada diariamente, os molhos cozidos lentamente, e os risotos mexidos à mão - exatamente como faziam as nonnas italianas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <img src="../assets/passion-service.jpg" alt="Serviço com Paixão" class="rounded-lg w-full">
+                        </div>
+                        <div class="md:w-2/3 md:pl-8">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 title-font">Paixão no Serviço</h3>
+                            <p class="text-gray-600">Mais do que servir refeições, criamos experiências. Nossa equipe é treinada para fazer cada cliente se sentir como em casa, com atenção personalizada e conhecimento profundo de nosso cardápio e vinhos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Conheça Nossa Equipe</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-member text-center">
+                    <div class="overflow-hidden rounded-full w-48 h-48 mx-auto mb-4">
+                        <img src="../assets/chef-marco.jpg" alt="Chef Marco Bianchi" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">Marco Bianchi</h3>
+                    <p class="text-red-600 font-medium mb-3">Chef Executivo</p>
+                    <p class="text-gray-600">Neto do fundador, Marco trouxe para o Bella Napoli técnicas aprendidas em Nápoles, Roma e Florença. Especialista em massas frescas e molhos tradicionais.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member text-center">
+                    <div class="overflow-hidden rounded-full w-48 h-48 mx-auto mb-4">
+                        <img src="../assets/chef-lucia.jpg" alt="Chef Lucia Romano" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">Lucia Romano</h3>
+                    <p class="text-red-600 font-medium mb-3">Chef de Confeitaria</p>
+                    <p class="text-gray-600">Especialista em doces italianos, Lucia domina desde o clássico Tiramisù até sobremesas regionais como Cannoli sicilianos e Sfogliatelle napolitanas.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member text-center">
+                    <div class="overflow-hidden rounded-full w-48 h-48 mx-auto mb-4">
+                        <img src="../assets/sommelier-carlo.jpg" alt="Sommelier Carlo Rossi" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 title-font">Carlo Rossi</h3>
+                    <p class="text-red-600 font-medium mb-3">Sommelier</p>
+                    <p class="text-gray-600">Com certificação internacional, Carlo seleciona pessoalmente cada vinho de nossa adega, garantindo harmonizações perfeitas com nossos pratos.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-600"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <!-- Mesmo footer da index.html -->
+    </footer>
+</body>
+</html>
