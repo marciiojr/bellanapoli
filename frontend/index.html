@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante Bella Napoli - Autêntica Cozinha Italiana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero-pasta.jpg');
+        }
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="assets/images/ChatGPT Image 19 de mai. de 2025, 14_36_10.png" alt="Bella Napoli Logo" class="h-14 animate__animated animate__fadeIn">
+                <span class="ml-3 text-2xl font-bold text-red-600 title-font animate__animated animate__fadeIn">Bella Napoli</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-red-600 font-semibold hover:text-red-700 transition duration-300">Home</a>
+                <a href="pages/menu.html" class="text-gray-600 hover:text-red-600 transition duration-300">Cardápio</a>
+                <a href="pages/reservations.html" class="text-gray-600 hover:text-red-600 transition duration-300">Reservas</a>
+                <a href="pages/about.html" class="text-gray-600 hover:text-red-600 transition duration-300">Sobre Nós</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="pages/login.html" class="px-4 py-2 text-gray-600 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-user"></i> <span class="hidden md:inline">Login</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#" class="block py-2 text-red-600 font-semibold">Home</a>
+            <a href="pages/menu.html" class="block py-2 text-gray-600 hover:text-red-600">Cardápio</a>
+            <a href="pages/reservations.html" class="block py-2 text-gray-600 hover:text-red-600">Reservas</a>
+            <a href="pages/about.html" class="block py-2 text-gray-600 hover:text-red-600">Sobre Nós</a>
+            <a href="pages/login.html" class="block py-2 text-gray-600 hover:text-red-600">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-image h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat pt-16" style="background-image: url('./assets/images/hero-bg.jpg');">
+        <div class="text-center px-4 animate__animated animate__fadeInUp">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 title-font">Autêntica Cozinha Italiana</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">Sabores que transportam você direto para as ruas de Nápoles</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="pages/reservations.html" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 animate__animated animate__pulse animate__infinite animate__slower">
+                    Reserve Agora
+                </a>
+                <a href="pages/menu.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-red-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver Cardápio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate__animated animate__fadeInLeft">
+                    <img src="./assets/images/hero-bg.jpg" alt="Interior do Restaurante" class="rounded-lg shadow-xl w-full h-auto max-h-96 object-cover">
+                </div>
+                <div class="md:w-1/2 md:pl-12 animate__animated animate__fadeInRight">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 title-font">Nossa História</h2>
+                    <p class="text-gray-600 mb-4">Fundado em 1985 pelo Chef Giovanni Rossi, o Bella Napoli nasceu da paixão pela autêntica culinária italiana, trazendo para nossa cidade os sabores e tradições da região da Campânia.</p>
+                    <p class="text-gray-600 mb-6">Hoje, sob o comando do Chef Marco Bianchi, continuamos a tradição de usar apenas ingredientes frescos e técnicas tradicionais, muitas delas passadas de geração em geração.</p>
+                    <a href="pages/about.html" class="inline-block border-2 border-red-600 text-red-600 font-bold py-2 px-6 rounded-full hover:bg-red-600 hover:text-white transition duration-300">
+                        Conheça Mais
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 title-font">Nossos Diferenciais</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300 animate__animated animate__fadeIn" data-wow-delay="0.1s">
+                    <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-seedling text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 title-font">Ingredientes Frescos</h3>
+                    <p class="text-gray-600">Nossos tomates são colhidos maduros, nossa massa é fresca e nosso azeite é importado diretamente da Toscana.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300 animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                    <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mortar-pestle text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 title-font">Técnicas Tradicionais</h3>
+                    <p class="text-gray-600">Nossos chefs dominam técnicas centenárias, desde o preparo perfeito da massa até o ponto ideal dos risotos.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300 animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                    <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wine-bottle text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 title-font">Vinhos Premiados</h3>
+                    <p class="text-gray-600">Nossa adega possui mais de 200 rótulos italianos cuidadosamente selecionados para harmonizar com nossos pratos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 title-font">Destaques do Cardápio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore alguns dos nossos pratos mais amados pelos clientes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="overflow-hidden h-60">
+                        <img src="assets/images/carbonara.jpg" alt="Pasta Carbonara" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold title-font">Spaghetti Carbonara</h3>
+                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold">Mais Pedido</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Clássico romano com ovos, queijo pecorino, pancetta crocante e pimenta preta fresca.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 59,90</span>
+                            <button class="text-red-600 hover:text-red-700 transition duration-300">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="overflow-hidden h-60">
+                        <img src="assets/images/risotto.jpg" alt="Risotto ai Funghi" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold title-font">Risotto ai Funghi</h3>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-bold">Novidade</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Risotto cremoso com cogumelos porcini frescos, vinho branco e um toque de parmesão.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 65,90</span>
+                            <button class="text-red-600 hover:text-red-700 transition duration-300">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="menu-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <div class="overflow-hidden h-60">
+                        <img src="assets/images/tiramisu.jpg" alt="Tiramisù" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 title-font">Tiramisù Classico</h3>
+                        <p class="text-gray-600 mb-4">A sobremesa italiana mais famosa: café, mascarpone, biscoitos savoiardi e cacau em pó.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">R$ 32,90</span>
+                            <button class="text-red-600 hover:text-red-700 transition duration-300">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="pages/menu.html" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 animate__animated animate__pulse animate__infinite animate__slower">
+                    Ver Cardápio Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 title-font">O Que Dizem Nossos Clientes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/client1.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ana Carolina</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"A melhor massa que já comi fora da Itália! O ambiente é acolhedor e o serviço impecável. Volto sempre!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/client2.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ricardo Almeida</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"O risoto de funghi é divino! A carta de vinhos é excelente e o sommelier sabe exatamente o que recomendar."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/client3.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Fernanda Gomes</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Perfeito para ocasiões especiais. Comemorei meu aniversário lá e foi uma experiência memorável!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section class="py-20 bg-red-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6 title-font">Faça sua reserva online</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Garanta seu lugar em nosso restaurante e desfrute de uma experiência gastronômica inesquecível.</p>
+            
+            <div class="max-w-md mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="p-6">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="date">Data</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="date" id="date">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="time">Horário</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" type="time" id="time">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="people">Pessoas</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" id="people">
+                            <option>1 pessoa</option>
+                            <option>2 pessoas</option>
+                            <option>3 pessoas</option>
+                            <option>4 pessoas</option>
+                            <option>5+ pessoas</option>
+                        </select>
+                    </div>
+                    <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition duration-300">
+                        Reservar Mesa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 title-font">Siga-nos no Instagram</h2>
+            <p class="text-center text-gray-600 mb-8">@bellanapoli_restaurante</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1">
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram1.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram2.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram3.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram4.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram5.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+                <a href="#" class="instagram-item overflow-hidden">
+                    <img src="assets/instagram6.jpg" alt="Instagram Post" class="w-full h-48 object-cover hover:opacity-90 transition duration-300">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 title-font">Bella Napoli</h3>
+                    <p class="text-gray-400 mb-4">Autêntica cozinha italiana no coração da cidade, trazendo sabores e tradições diretamente da Itália.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="pages/menu.html" class="text-gray-400 hover:text-white transition duration-300">Cardápio</a></li>
+                        <li><a href="pages/reservations.html" class="text-gray-400 hover:text-white transition duration-300">Reservas</a></li>
+                        <li><a href="pages/about.html" class="text-gray-400 hover:text-white transition duration-300">Sobre Nós</a></li>
+                        <li><a href="pages/contact.html" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Hours -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Horário</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Segunda - Sexta</span>
+                            <span>11h - 23h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado</span>
+                            <span>12h - 00h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span>12h - 00h</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Contato</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Rua das Massas, 123 - Centro, Fortaleza - CE</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>(85) 98765-4321</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contato@bellanapoli.com.br</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Ristorante Bella Napoli. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Simple animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1];
+                    element.classList.add(animationClass);
+                }
+            });
+        };
+        
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
