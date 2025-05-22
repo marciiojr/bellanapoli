@@ -2,10 +2,11 @@ package com.italianrestaurant.menuservice.models;
 
 import jakarta.persistence.*;
 
+@Entity
 public class Dish{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String nome;
     private String descricao;
     private double preco;
@@ -20,6 +21,10 @@ public class Dish{
         this.preco = preco;
         this.categoria = categoria;
         this.disponivel = disponivel;
+    }
+
+    public Dish() {
+
     }
 
     public long getId() {
