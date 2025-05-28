@@ -20,10 +20,6 @@ public class DishController {
         this.dishService = dishService;
     }
 
-    @GetMapping("/teste")
-    public String teste() {
-        return "ok";
-    }
 
 @GetMapping
 public ResponseEntity<List<DishReponseDTO>> findAll() {

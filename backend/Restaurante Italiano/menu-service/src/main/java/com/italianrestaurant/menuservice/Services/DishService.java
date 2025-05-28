@@ -13,20 +13,20 @@ import java.util.stream.Collectors;
 @Service
 public class DishService {
 
-    private final DishRepository dishRepository;
+    private final DishRepository repository;
 
     public DishService(DishRepository dishRepository) {
-        this.dishRepository = dishRepository;
+        this.repository = dishRepository;
     }
 
     public List<DishReponseDTO> findAll() {
-        return dishRepository.findAll().stream().map(d ->
+        return repository.findAll().stream().map(d ->
                 new DishReponseDTO(d.getId(), d.getNome(), d.getDescricao(), d.getPreco(),
                         d.getCategoria(), d.isDisponivel())).collect(Collectors.toList());
     }
 
     public DishReponseDTO findById(Long id) {
-        Dish dish = dishRepository.findById(id).orElseThrow(() ->
+        Dish dish = repository.findById(id).orElseThrow(() ->
                 new RuntimeException("Prato não encontrado!"));
         return mapperToDto(dish);
     }
@@ -34,26 +34,26 @@ public class DishService {
     @Transactional
     public DishReponseDTO create(DishRequestDTO dishRDto){
         Dish dish = mapper(dishRDto);
-        Dish createdDish = dishRepository.save(dish);
+        Dish createdDish = repository.save(dish);
         return mapperToDto(createdDish);
 
 
     }
 
     public DishReponseDTO update(Long id, DishRequestDTO dishRDto) {
-        Dish dish = dishRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Dish dish = repository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
         dish.setNome(dishRDto.getNome());
         dish.setDescricao(dishRDto.getDescricao());
         dish.setPreco(dishRDto.getPreco());
         dish.setCategoria(dishRDto.getCategoria());
         dish.setDisponivel(dishRDto.isDisponivel());
-        Dish updatedDish = dishRepository.save(dish);
+        Dish updatedDish = repository.save(dish);
         return mapperToDto(updatedDish);
     }
 
     public DishReponseDTO delete(Long id) {
-        Dish dish = dishRepository.findById(id).orElseThrow(() -> new RuntimeException(("Prato não encontrado")));
-        dishRepository.delete(dish);
+        Dish dish = repository.findById(id).orElseThrow(() -> new RuntimeException(("Prato não encontrado")));
+        repository.delete(dish);
         return mapperToDto(dish);
     }
 

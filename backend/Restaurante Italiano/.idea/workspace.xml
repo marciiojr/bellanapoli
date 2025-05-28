@@ -5,13 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cb23ec-5bb3-4d52-b061-2129d4b494ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/controllers/DishController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/controllers/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/dtos/request/ClientRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/dtos/response/ClientResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/models/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/repositories/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/services/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/controllers/ReserveController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/dtos/request/ReserveRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/dtos/response/ReserveResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/enums/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/models/Reserve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/repositories/ReserveRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ReserveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/italian-restaurant.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/menu-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Services/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Services/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/models/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/models/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/repositories/DishRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/repositories/DishRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/controllers/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/controllers/DishController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/menu-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-discovery/src/main/java/com/italianrestaurant/servicediscovery/ServiceDiscoveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-discovery/src/main/java/com/italianrestaurant/servicediscovery/ServiceDiscoveryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-discovery/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-discovery/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/italianrestaurant/userservice/UserServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/test/java/com/italianrestaurant/userservice/UserServiceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +57,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -38,6 +80,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.All in reservation-service.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -45,7 +88,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGatewayApplication (1).executor": "Run",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.ClientServiceApplication.executor": "Run",
     "Spring Boot.MenuServiceApplication.executor": "Run",
+    "Spring Boot.ReservationServiceApplication (1).executor": "Run",
+    "Spring Boot.ReservationServiceApplication.executor": "Run",
+    "Spring Boot.ServiceDiscoveryApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/vanil/IdeaProjects/BellaNapoli/bellanapoli/backend/Restaurante Italiano",
     "node.js.detected.package.eslint": "true",
@@ -53,10 +103,61 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ReservationServiceApplication (1)">
+    <configuration name="All in reservation-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reservation-service" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiGatewayApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="italian-restaurant" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.apigateway.ApiGatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.italianrestaurant.apigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="client-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.clientservice.ClientServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MenuServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="menu-service" />
@@ -65,6 +166,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NotificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="notification-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.notificationservice.NotificationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservationServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="reservation-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.reservationservice.ReservationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="italian-restaurant" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.reservationservice.ReservationServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.italianrestaurant.reservationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceDiscoveryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="service-discovery" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.italianrestaurant.servicediscovery.ServiceDiscoveryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ApiGatewayApplication (1)" />
+        <item itemvalue="Spring Boot.ReservationServiceApplication" />
+        <item itemvalue="JUnit.All in reservation-service" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -83,6 +227,12 @@
       <updated>1747873498988</updated>
       <workItem from="1747873500072" duration="7600000" />
       <workItem from="1747932541120" duration="4411000" />
+      <workItem from="1748193899421" duration="4374000" />
+      <workItem from="1748277079337" duration="14420000" />
+      <workItem from="1748362263892" duration="8471000" />
+      <workItem from="1748401947766" duration="684000" />
+      <workItem from="1748402861379" duration="246000" />
+      <workItem from="1748403120646" duration="1678000" />
     </task>
     <servers />
   </component>
