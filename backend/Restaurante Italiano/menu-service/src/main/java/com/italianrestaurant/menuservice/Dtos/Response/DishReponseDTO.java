@@ -1,18 +1,23 @@
 package com.italianrestaurant.menuservice.Dtos.Response;
 
+import com.italianrestaurant.menuservice.models.Categoria;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
 public class DishReponseDTO {
     private long id;
     private String nome;
     private String descricao;
     private double preco;
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
     private boolean disponivel;
 
     public DishReponseDTO() {
 
     }
 
-    public DishReponseDTO(long id, String nome, String descricao,  double preco, String categoria, boolean disponivel) {
+    public DishReponseDTO(long id, String nome, String descricao,  double preco, Categoria categoria, boolean disponivel) {
         this.disponivel = disponivel;
         this.categoria = categoria;
         this.preco = preco;
@@ -29,7 +34,7 @@ public class DishReponseDTO {
         return disponivel;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 

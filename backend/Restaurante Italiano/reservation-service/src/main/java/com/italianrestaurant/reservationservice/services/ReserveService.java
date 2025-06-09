@@ -5,9 +5,12 @@ import com.italianrestaurant.clientservice.models.Client;
 import com.italianrestaurant.reservationservice.dtos.request.ReserveRequest;
 import com.italianrestaurant.reservationservice.dtos.response.ReserveResponse;
 import com.italianrestaurant.reservationservice.enums.Status;
+import com.italianrestaurant.reservationservice.events.ReservationCreatedEvent;
+import com.italianrestaurant.reservationservice.logging.AdminAudit;
 import com.italianrestaurant.reservationservice.models.Reserve;
 import com.italianrestaurant.reservationservice.repositories.ReserveRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,35 +21,42 @@ public class ReserveService {
 
     private final ReserveRepository reserveRepository;
     private final ClientService clientService;
+    private final ApplicationEventPublisher publisher;
 
-    public ReserveService(ReserveRepository reserveRepository, ClientService clientService) {
+    public ReserveService(ReserveRepository reserveRepository, ClientService clientService,ApplicationEventPublisher publisher) {
         this.reserveRepository = reserveRepository;
         this.clientService = clientService;
+        this.publisher = publisher;
     }
 
     public List<ReserveResponse> getAll(){
         return reserveRepository.findAll().stream().map(r -> new ReserveResponse(r.getId(), r.getReservationDate(),
-                r.getClientName(), r.getStatus())).collect(Collectors.toList());
+                r.getClientName(), r.getStatus(), r.getClientEmail())).collect(Collectors.toList());
     }
 
     public List<ReserveResponse> getAllActive(){
         return reserveRepository.findAll().stream().filter(r -> r.getStatus().equals(Status.Ativo)).map(r -> new ReserveResponse(r.getId(), r.getReservationDate(),
-                r.getClientName(), r.getStatus())).collect(Collectors.toList());
+                r.getClientName(), r.getStatus(), r.getClientEmail())).collect(Collectors.toList());
     }
 
+    @AdminAudit(action = "Criação de reserva")
     public ReserveResponse createReservation(ReserveRequest request) {
 
         String clientName = clientService.getClientNameById(request.getClientId());
+        String clientEmail = clientService.getClientEmailById(request.getClientId());
 
         Reserve reserve = new Reserve(null,
                 request.getReservationDate(),
                 clientName,
                 request.getClientId(),
-                Status.Ativo
+                Status.Ativo,
+                clientEmail
         );
 
         Reserve createdReserve = reserveRepository.save(reserve);
-        return new ReserveResponse(createdReserve.getId(), createdReserve.getReservationDate(), createdReserve.getClientName(), createdReserve.getStatus());
+
+        publisher.publishEvent(new ReservationCreatedEvent(this, createdReserve));
+        return new ReserveResponse(createdReserve.getId(), createdReserve.getReservationDate(), createdReserve.getClientName(), createdReserve.getStatus(), createdReserve.getClientEmail());
     }
 
     public ReserveResponse findById(Long id) {
@@ -56,6 +66,7 @@ public class ReserveService {
     }
 
 
+    @AdminAudit(action = "Alteração de reserva")
     public ReserveResponse update(Long id, ReserveRequest reserveRequest) {
         Reserve reserve = reserveRepository.findById(id).orElseThrow(() -> new RuntimeException("Reserva não encontrado"));
         reserve.setReservationDate(reserveRequest.getReservationDate());
@@ -71,7 +82,7 @@ public class ReserveService {
 
     public List<ReserveResponse> GetAllByClientId(Long clientId) {
         return reserveRepository.findAll().stream().filter(r -> r.getClientId().equals(clientId)).map(r -> new ReserveResponse(r.getId(), r.getReservationDate(),
-                r.getClientName(), r.getStatus())).collect(Collectors.toList());
+                r.getClientName(), r.getStatus(), r.getClientEmail())).collect(Collectors.toList());
 
     }
 
@@ -83,11 +94,11 @@ public class ReserveService {
     }
 
     public ReserveResponse mapperToDto(Reserve reserve){
-        return new ReserveResponse(reserve.getId(), reserve.getReservationDate(), reserve.getClientName(), reserve.getStatus());
+        return new ReserveResponse(reserve.getId(), reserve.getReservationDate(), reserve.getClientName(), reserve.getStatus(), reserve.getClientEmail());
     }
 
     public Reserve mapper(ReserveResponse reserveResponse){
-        return new Reserve(null, reserveResponse.getReservationDate(), reserveResponse.getClientName(), reserveResponse.getId(), reserveResponse.getStatus());
+        return new Reserve(null, reserveResponse.getReservationDate(), reserveResponse.getClientName(), reserveResponse.getId(), reserveResponse.getStatus(), reserveResponse.getClientEmail());
     }
 
 

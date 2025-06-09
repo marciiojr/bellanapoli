@@ -2,6 +2,7 @@ package com.italianrestaurant.menuservice.Services;
 
 import com.italianrestaurant.menuservice.Dtos.Request.DishRequestDTO;
 import com.italianrestaurant.menuservice.Dtos.Response.DishReponseDTO;
+import com.italianrestaurant.menuservice.factory.DishFactory;
 import com.italianrestaurant.menuservice.models.Dish;
 import com.italianrestaurant.menuservice.repositories.DishRepository;
 import jakarta.transaction.Transactional;
@@ -14,9 +15,11 @@ import java.util.stream.Collectors;
 public class DishService {
 
     private final DishRepository repository;
+    private final DishFactory dishFactory;
 
-    public DishService(DishRepository dishRepository) {
+    public DishService(DishRepository dishRepository, DishFactory dishFactory) {
         this.repository = dishRepository;
+        this.dishFactory = dishFactory;
     }
 
     public List<DishReponseDTO> findAll() {
@@ -33,7 +36,7 @@ public class DishService {
 
     @Transactional
     public DishReponseDTO create(DishRequestDTO dishRDto){
-        Dish dish = mapper(dishRDto);
+        Dish  dish = dishFactory.createDish(dishRDto.getCategoria(), dishRDto.getNome(), dishRDto.getDescricao(), dishRDto.getPreco(), dishRDto.isDisponivel());
         Dish createdDish = repository.save(dish);
         return mapperToDto(createdDish);
 

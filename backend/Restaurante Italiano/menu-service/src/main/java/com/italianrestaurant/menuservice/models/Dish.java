@@ -10,11 +10,12 @@ public class Dish{
     private String nome;
     private String descricao;
     private double preco;
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
     private boolean disponivel;
 
 
-    public Dish(Long id, String nome, String descricao, double preco, String categoria, boolean disponivel) {
+    public Dish(Long id, String nome, String descricao, double preco, Categoria categoria, boolean disponivel) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -59,11 +60,11 @@ public class Dish{
         this.preco = preco;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

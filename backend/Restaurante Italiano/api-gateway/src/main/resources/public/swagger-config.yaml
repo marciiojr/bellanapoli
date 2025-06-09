@@ -1,0 +1,9 @@
+urls:
+  - name: Client Service
+    url: http://localhost:8081/v3/api-docs
+  - name: Menu Service
+    url: http://localhost:8082/v3/api-docs
+  - name: Reservation Service
+    url: http://localhost:8083/v3/api-docs
+  - name: Notification Service
+    url: http://localhost:8084/v3/api-docs
