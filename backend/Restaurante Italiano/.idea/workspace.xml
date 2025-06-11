@@ -85,7 +85,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ReservationServiceApplication (1)">
+  <component name="RunManager" selected="Spring Boot.ServiceDiscoveryApplication">
     <configuration name="All in reservation-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="reservation-service" />
       <option name="PACKAGE_NAME" value="" />
