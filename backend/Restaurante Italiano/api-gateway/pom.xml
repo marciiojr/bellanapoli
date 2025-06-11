@@ -70,6 +70,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- adiciona suporte às anotações de controller e rotas HTTP -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
