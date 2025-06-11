@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27cb23ec-5bb3-4d52-b061-2129d4b494ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/controllers/SwaggerRedirectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/public/swagger-config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-service/src/main/java/com/italianrestaurant/clientservice/logging/LoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/factory/DishFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/logging/LoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/models/Categoria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/events/ReservationCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/events/ReservationNotificationListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/logging/AdminAudit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/logging/AuditAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/logging/LoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Dtos/Request/DishRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Dtos/Request/DishRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Dtos/Response/DishReponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Dtos/Response/DishReponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Services/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/Services/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/models/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/java/com/italianrestaurant/menuservice/models/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/menu-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/ReservationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/ReservationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/dtos/response/ReserveResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/dtos/response/ReserveResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/models/Reserve.java" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/models/Reserve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ReserveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/java/com/italianrestaurant/reservationservice/services/ReserveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reservation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/reservation-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +85,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MenuServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ReservationServiceApplication (1)">
     <configuration name="All in reservation-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="reservation-service" />
       <option name="PACKAGE_NAME" value="" />
@@ -232,6 +204,9 @@
       <workItem from="1749356690928" duration="2330000" />
       <workItem from="1749398829924" duration="19000" />
       <workItem from="1749405788473" duration="4716000" />
+      <workItem from="1749481187034" duration="1222000" />
+      <workItem from="1749577381135" duration="1372000" />
+      <workItem from="1749600105325" duration="1509000" />
     </task>
     <servers />
   </component>
