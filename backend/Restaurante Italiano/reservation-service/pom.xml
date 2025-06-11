@@ -94,18 +94,26 @@
 
     <build>
         <plugins>
+            <!-- 1) Declara versão do plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>          <!-- use uma versão recente -->
                 <configuration>
+                    <!-- 2) Define o nível de linguagem -->
+                    <release>${java.version}</release>
+                    <!-- 3) (Opcional) mantém o Lombok funcionando -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.36</version>  <!-- ou a versão que você usa -->
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+
+            <!-- Boot plugin continua como está -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
